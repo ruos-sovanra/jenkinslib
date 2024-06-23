@@ -61,6 +61,8 @@ pipeline {
                             WORKDIR /app
                             # Copy the built JAR from the builder stage and rename it for simplicity
                             COPY --from=builder /app/build/libs/*0.0.1-SNAPSHOT.jar app.jar
+                            # Copy the json1.json file from the builder stage
+                            COPY --from=builder /app/src/main/resources/json1.json /app/resources/json1.json
                             EXPOSE 8080
                             VOLUME /filestorage/images
                             VOLUME /keys
