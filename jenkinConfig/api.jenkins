@@ -11,7 +11,7 @@ pipeline {
         string(name: 'CONTAINER_NAME', defaultValue: 'alumni-api', description: 'Container')
         string(name: 'DOCKER_TAG', defaultValue: 'latest', description: 'Docker Tag')
         string(name: 'REPO_URL', defaultValue: 'http://git.istad.co/cstad-ite-2nd-generation/fswd/alumni/alumni-api.git', description: 'Repository URL')
-        string(name: 'DEPLOY_PORT', defaultValue: '3105', description: 'Port for deployment')
+        string(name: 'DEPLOY_PORT', defaultValue: '3132', description: 'Port for deployment')
         string(name: 'COMPOSE_FILE', defaultValue: 'docker-compose.yml', description: 'Docker Compose file')
     }
 
