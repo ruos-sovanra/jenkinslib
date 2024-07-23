@@ -121,11 +121,15 @@ pipeline {
                                 ports:
                                   - "${params.DEPLOY_PORT}:8080"
                                 container_name: ${params.CONTAINER_NAME}
+                                volumes:
+                                    - /home/asura/Desktop/alumni/filestorage:/app/filestorage/images
+                                    - /home/asura/Desktop/alumni/upload:/app/upload/cv
                                 networks:
                                   - data_analytics
                             networks:
                               data_analytics:
                                 external: true
+
                         """
                         writeFile file: "${params.COMPOSE_FILE}", text: composeContent
 
