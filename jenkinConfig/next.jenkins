@@ -83,20 +83,6 @@ pipeline {
                 }
             }
         }
-        stage('Push Docker Image to Registry') {
-            when {
-                expression { return params.BUILD_DOCKER }
-            }
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    script {
-                        def dockerImage = "${params.REGISTRY_DOCKER}/${params.BUILD_CONTAINER_NAME}:${params.DOCKER_TAG}"
-                        sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-                        sh "docker push ${dockerImage}"
-                    }
-                }
-            }
-        }
         stage('Deploy Docker') {
             when {
                 expression { return params.DOCKER_DEPLOY }
